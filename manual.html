@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4K-UVC-PON 使い方</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+            background: #111;
+            color: #f2f2f2;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            margin: 0 0 32px;
+            color: #bbbbbb;
+            font-size: 1rem;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 24px;
+            background: #1b1b1b;
+            border: 1px solid #2c2c2c;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.4rem;
+            color: #ffffff;
+            border-left: 5px solid #4da3ff;
+            padding-left: 12px;
+        }
+
+        h3 {
+            margin-top: 24px;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: #ffffff;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        ul {
+            margin: 0 0 12px 20px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .key {
+            display: inline-block;
+            min-width: 1.8em;
+            padding: 2px 8px;
+            margin: 0 2px;
+            background: #2c2c2c;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .note {
+            padding: 14px 16px;
+            background: #232323;
+            border-left: 4px solid #ffaa33;
+            border-radius: 8px;
+            color: #dddddd;
+        }
+
+        .status-red {
+            color: #ff5b5b;
+            font-weight: 700;
+        }
+
+        .status-green {
+            color: #59d66f;
+            font-weight: 700;
+        }
+
+        .footer {
+            margin-top: 32px;
+            color: #999999;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        a {
+            color: #7fc0ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>4K-UVC-PON 使い方</h1>
+        <p class="subtitle">
+            1本の4K UVCカメラ入力から複数のショットを切り出し、STANDBY / PROGRAM / CUT / AUTO / Tバーで操作する擬似マルチカメラスイッチャー試作版です。
+        </p>
+
+        <section>
+            <h2>1. このソフトでできること</h2>
+            <p>
+                4K-UVC-PON は、1台のUVCカメラ映像を元に複数の仮想ショットを作り、スイッチャー風の操作で切り替えるためのブラウザ試作版です。
+            </p>
+            <ul>
+                <li>UVCカメラ入力の表示</li>
+                <li>STANDBY / PROGRAM の2画面確認</li>
+                <li>Shot 1-4 の仮想ショット作成</li>
+                <li>ショット位置のドラッグ移動</li>
+                <li>CUT / AUTO / Tバーによる切替</li>
+                <li>PROGRAM専用の別ウィンドウ出力</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. 画面の見方</h2>
+
+            <h3>STANDBY</h3>
+            <p>
+                次に出したい映像を確認するための待機画面です。
+            </p>
+
+            <h3>PROGRAM</h3>
+            <p>
+                現在出力中の映像です。
+            </p>
+
+            <h3>Shot 1-4</h3>
+            <p>
+                4つの仮想ショットです。各ショットをクリックすると STANDBY に選ばれます。
+            </p>
+
+            <h3>FRAME</h3>
+            <p>
+                カメラ全景の上に、各ショットの切り出し枠が表示されます。枠をドラッグして位置を変えられます。
+            </p>
+
+            <h3>Tバー / CUT / AUTO</h3>
+            <p>
+                PROGRAM と STANDBY を切り替えるための操作エリアです。
+            </p>
+        </section>
+
+        <section>
+            <h2>3. 基本操作</h2>
+
+            <h3>STANDBYを選ぶ</h3>
+            <p>以下の方法で STANDBY を選択できます。</p>
+            <ul>
+                <li><span class="key">1</span> ～ <span class="key">4</span> キー</li>
+                <li>画面下の <span class="key">1</span> ～ <span class="key">4</span> ボタン</li>
+                <li>Shot 1-4 のプレビュー枠クリック</li>
+                <li>Shot 1-4 のタイトル帯クリック</li>
+            </ul>
+            <div class="note">
+                数字キーやショットクリックで変わるのは <strong>STANDBYのみ</strong> です。PROGRAM はその場では切り替わりません。
+            </div>
+
+            <h3>CUT</h3>
+            <p>即時に STANDBY と PROGRAM を入れ替えます。</p>
+            <ul>
+                <li><span class="key">Enter</span> キー</li>
+                <li>CUTボタン</li>
+            </ul>
+
+            <h3>AUTO</h3>
+            <p>現在の PROGRAM と STANDBY の間を自動でトランジションします。</p>
+            <ul>
+                <li><span class="key">Space</span> キー</li>
+                <li>AUTOボタン</li>
+            </ul>
+            <p>
+                AUTO 完了後に STANDBY と PROGRAM が入れ替わります。
+            </p>
+
+            <h3>Tバー</h3>
+            <p>
+                Tバーをドラッグして手動でトランジションできます。端まで到達すると切替が確定し、STANDBY と PROGRAM が入れ替わります。
+            </p>
+        </section>
+
+        <section>
+            <h2>4. 色の意味</h2>
+            <ul>
+                <li><span class="status-green">緑</span> = STANDBY</li>
+                <li><span class="status-red">赤</span> = PROGRAM</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. PROGRAM別ウィンドウ</h2>
+            <p>
+                PROGRAM画面をダブルクリックすると、PROGRAM専用の別ウィンドウを開けます。
+            </p>
+            <ul>
+                <li>別モニタ確認用の試作</li>
+                <li>現在のPROGRAMを追従表示</li>
+                <li>もう一度ダブルクリックで閉じる</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. 想定している使い方</h2>
+            <p>
+                この試作は特に、4K入力からFHD相当のショットを複数切り出す使い方を想定しています。
+            </p>
+            <ul>
+                <li>入力: 3840 x 2160</li>
+                <li>各ショット: 1920 x 1080 相当で切り出し</li>
+            </ul>
+            <p>
+                これにより、1台のカメラでも擬似的に複数カメラ運用のような見せ方ができます。
+            </p>
+        </section>
+
+        <section>
+            <h2>7. 現在できないこと</h2>
+            <ul>
+                <li>カメラ選択UI</li>
+                <li>設定保存 / 復元</li>
+                <li>AUTO秒数調整</li>
+                <li>音声の取り扱い</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. 注意事項</h2>
+            <ul>
+                <li>カメラ使用許可が必要です</li>
+                <li>ブラウザによって挙動が異なる場合があります</li>
+            </ul>
+        </section>
+
+        <p class="footer">
+            4K-UVC-PON / Browser Prototype
+        </p>
+    </div>
+</body>
+</html>

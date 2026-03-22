@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4K-UVC-PON</title>
+    <link rel="stylesheet" href="switcher.css">
+</head>
+<body>
+<div id="app-fit-root">
+    <div class="app-shell">
+        <div class="top-row">
+            <section class="panel large-panel">
+                <div class="panel-header stby-header">STANDBY</div>
+                <div class="video-box">
+                    <canvas id="stby-canvas" width="640" height="360"></canvas>
+                </div>
+            </section>
+
+            <section class="panel large-panel">
+                <div class="panel-header pgm-header">PROGRAM</div>
+                <div class="video-box">
+                    <canvas id="pgm-canvas" width="640" height="360"></canvas>
+                </div>
+            </section>
+        </div>
+
+        <div class="bottom-row">
+
+            <section class="editor-panel">
+                <div class="panel-header editor-header">FRAME</div>
+                <div class="video-box">
+                    <canvas id="editor-canvas" width="640" height="360"></canvas>
+                </div>
+            </section>
+
+            <section class="shot-grid">
+                <div class="shot-panel">
+                    <div class="panel-header shot-header" id="shot-header-0">Shot 1</div>
+                    <div class="video-box">
+                        <canvas id="shot-canvas-0" width="320" height="180"></canvas>
+                    </div>
+                </div>
+
+                <div class="shot-panel">
+                    <div class="panel-header shot-header" id="shot-header-1">Shot 2</div>
+                    <div class="video-box">
+                        <canvas id="shot-canvas-1" width="320" height="180"></canvas>
+                    </div>
+                </div>
+
+                <div class="shot-panel shot-panel-bottom">
+                    <div class="panel-header shot-header" id="shot-header-2">Shot 3</div>
+                    <div class="video-box">
+                        <canvas id="shot-canvas-2" width="320" height="180"></canvas>
+                    </div>
+                </div>
+
+                <div class="shot-panel shot-panel-bottom">
+                    <div class="panel-header shot-header" id="shot-header-3">Shot 4</div>
+                    <div class="video-box">
+                        <canvas id="shot-canvas-3" width="320" height="180"></canvas>
+                    </div>
+                </div>
+
+                <div class="shot-select-row">
+                    <div class="shot-select-key">
+                        <button class="shot-select-button" data-shot-index="0" aria-label="Shot 1"></button>
+                        <div class="shot-select-label">1</div>
+                    </div>
+                    <div class="shot-select-key">
+                        <button class="shot-select-button" data-shot-index="1" aria-label="Shot 2"></button>
+                        <div class="shot-select-label">2</div>
+                    </div>
+                    <div class="shot-select-key">
+                        <button class="shot-select-button" data-shot-index="2" aria-label="Shot 3"></button>
+                        <div class="shot-select-label">3</div>
+                    </div>
+                    <div class="shot-select-key">
+                        <button class="shot-select-button" data-shot-index="3" aria-label="Shot 4"></button>
+                        <div class="shot-select-label">4</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="control-panel">
+                <a href="manual.html" class="manual-link-button" target="_blank" rel="noopener noreferrer">MANUAL</a>
+
+                <div class="tbar-wrap">
+                    <div class="tbar-fader-shell">
+                        <div class="tbar-fader-track"></div>
+                        <input id="tbar-slider" type="range" min="0" max="100" value="0" orient="vertical">
+                    </div>
+                </div>
+
+                <div class="control-key-stack">
+                    <button id="cut-button" class="control-button" aria-label="CUT"></button>
+                    <div class="control-button-label">CUT</div>
+                </div>
+
+                <div class="control-key-stack">
+                    <button id="auto-button" class="control-button" aria-label="AUTO"></button>
+                    <div class="control-button-label">AUTO</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<video id="source-video" autoplay muted playsinline style="display: none;"></video>
+
+    <script src="switcher.js"></script>
+</body>
+</html>
