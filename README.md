@@ -4,6 +4,10 @@
 
 Using a single 4K UVC camera input, it creates multiple virtual shots and lets you switch them with a switcher-like interface including STANDBY, PROGRAM, CUT, AUTO, and T-bar operation.
 
+## Screenshot
+
+![4K-UVC-PON main screen](./screenshot.jpg)
+
 ## Features
 
 - UVC camera input preview
