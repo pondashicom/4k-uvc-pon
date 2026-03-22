@@ -8,6 +8,14 @@ Using a single 4K UVC camera input, it creates multiple virtual shots and lets y
 
 ![4K-UVC-PON main screen](./screenshot.jpg)
 
+## Live Demo
+
+A browser-based sample is available here:
+
+[https://pondashi.com/4kuvcpon/sample/](https://pondashi.com/4kuvcpon/sample/)
+
+You can check the UI and basic behavior before trying the local files.
+
 ## Features
 
 - UVC camera input preview
